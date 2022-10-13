@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Varables
-fonts="noto-fonts oft-ipafont"
+fonts="noto-fonts oft-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji"
 clitools="tmux git neovim"
 audio="pipewire pipewire-jack"
 filemanagment="pcmanfm "
