@@ -2,8 +2,8 @@
 
 #Varables
 fonts="noto-fonts oft-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji"
-clitools="tmux git neovim"
-audio="pipewire pipewire-jack"
+clitools="tmux git neovim ncdu gitui"
+audio="pipewire pipewire-jack pulsemixer"
 filemanagment="pcmanfm "
 username="rafal"
 
