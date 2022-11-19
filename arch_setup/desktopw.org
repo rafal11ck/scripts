@@ -3,5 +3,5 @@
 #hyprland
 
 packages="swaylock swayidle wofi"
-tools="xarchiver thurnar"
-paru -S "$packages"
+tools="xarchiver thurnar wl-clipboard"
+paru -S "$packages $tools"
