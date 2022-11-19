@@ -1,0 +1,7 @@
+#+title: setupDE
+
+#hyprland
+
+packages="swaylock swayidle wofi"
+tools="xarchiver thurnar"
+paru -S "$packages"
