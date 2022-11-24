@@ -1,7 +1,21 @@
-#+title: setupDE
+#+title: setup wayland env
+#+property: :tangle desktopw.sh
 
-#hyprland
+* Packages to install
 
-packages="swaylock swayidle wofi"
+#+begin_src sh
+#!/bin/env/sh
+
+basic="swaylock swayidle wofi"
 tools="xarchiver thurnar wl-clipboard"
-paru -S "$packages $tools"
+editor="emacs-pgtk-git"
+bar="eww-wayland"
+extra="discord-screenaudio"
+packages="$basic $tools $editor $bar $extra"
+#+end_src
+
+* Install packages
+
+#+begin_src sh
+paru -S "$packages"
+#+end_src
