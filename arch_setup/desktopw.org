@@ -2,18 +2,45 @@
 #+PROPERTY: header-args :tangle setupDE.sh
 
 * Basic
-aa
+Install basic stuff
 #+begin_src sh
 #install basic stuff
-pacman -S openssh neovim tmux
+doas pacman -Syu --needed openssh neovim tmux fakeroot rust pkgconfig tar dict
 #+end_src
 
 * AUR helper -- paru
-aa
+Install AUR helper
+Reuires =rust fakeroot pkgconfig=
 #+begin_src sh
-#install
-sudo pacman -S --needed base-devel
+#install AUR helper\
+doas sudo pacman -S --needed base-devel fakeroot rust pkgconfig
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
+#+end_src
+* Fonts
+
+#+begin_src sh
+paru -Syu --needed noto-fonts oft-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji
+#+end_src
+* Audio
+#+begin_src sh
+paru -Syu --needed pipewire
+#+end_src
+* wayland apps
+- terminal emulator :: foot
+- file managmer :: pcmanfm-gtk3
+#+begin_src sh
+paru -Syu --needed foot pcmanfm-gtk3
+#+end_src
+* Emacs
+- emacs package :: AUR =emacs-pgtk-git=
+#+begin_src sh
+paru -Syu emacs-pgtk-git
+#+end_src
+I use doom emacs so.
+#+begin_src sh
+paru -Syu --needed git ripgrep fd find
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 #+end_src
