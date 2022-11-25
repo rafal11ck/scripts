@@ -1,6 +1,5 @@
 #+title: desktopw
 #+PROPERTY: header-args :tangle desktopw.sh
-
 * Basic
 - =which= to check weather =paru= is installed.
 #+begin_src sh
@@ -12,8 +11,8 @@ basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which"
 tuiclitools="neovim tmux"
 #+end_src
 ** Install
-#+begin_src
-pacman -Syu --needed $basic $tuiclitools
+#+begin_src sh
+pacman -Syu --needed "$basic" "$tuiclitools"
 #+end_src
 
 * AUR helper -- paru
@@ -21,35 +20,47 @@ Install AUR helper
 Reuires =rust fakeroot pkgconfig=
 #+begin_src sh
 #install AUR helper\
-doas sudo pacman -S --needed base-devel fakeroot rust pkgconfig &&
-git clone https://aur.archlinux.org/paru.git &&
+git clone https://aur.archlinux.org/paru-bin.git &&
 cd paru &&
 makepkg -si &&
 #+end_src
-* Fonts
+** Install command
+#+begin_src sh
+#Install command alias to aur helper
+install="paru -Syu --needed"
+#+end_src
 
+* Install Audio and Fonts
+** Fonts
 #+begin_src sh
-paru -Syu --needed noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd
+fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
 #+end_src
-* Audio
+** Audio
 #+begin_src sh
-paru -Syu --needed pipewire
+audio="pipewire pipewire-jack wireplumber"
 #+end_src
-* wayland apps
+** Install
+#+begin_src sh
+$install --needed "$fonts" "$audio"
+#+end_src
+* Wayland
+** Apps
 - terminal emulator :: foot
 - file managmer :: pcmanfm-gtk3
+- web browser :: firefox
 #+begin_src sh
-paru -Syu --needed foot pcmanfm-gtk3
+#Wayland apps
+$install foot pcmanfm-gtk3 firefox
 #+end_src
-* Emacs
+** Emacs
 - emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texlive-full=
 #+begin_src sh
-paru -Syu --needed autoconf makeinfo
-paru -Syu --needed emacs-pgtk-git
+$install autoconf makeinfo
+$install emacs-pgtk-git
 #+end_src
 I use doom emacs so.
 #+begin_src sh
-paru -Syu --needed git ripgrep fd find texlive-full
+$install git ripgrep fd find texlive-full
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+end_src

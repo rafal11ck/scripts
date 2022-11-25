@@ -1,21 +1,30 @@
 #install basic stuff
-doas pacman -Syu --needed openssh neovim tmux fakeroot rust pkgconfig tar dictd gitui mandb
+basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which"
+
+tuiclitools="neovim tmux"
+
+pacman -Syu --needed "$basic" "$tuiclitools"
 
 #install AUR helper\
-doas sudo pacman -S --needed base-devel fakeroot rust pkgconfig
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
+git clone https://aur.archlinux.org/paru-bin.git &&
+cd paru &&
+makepkg -si &&
 
-paru -Syu --needed noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd
+#Install command alias to aur helper
+install="paru -Syu --needed"
 
-paru -Syu --needed pipewire
+fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
 
-paru -Syu --needed foot pcmanfm-gtk3
+audio="pipewire"
 
-paru -Syu --needed autoconf makeinfo
-paru -Syu --needed emacs-pgtk-git
+$install --needed "$fonts" "$audio"
 
-paru -Syu --needed git ripgrep fd find texlive-full
+#Wayland apps
+$install foot pcmanfm-gtk3 firefox
+
+$install autoconf makeinfo
+$install emacs-pgtk-git
+
+$install git ripgrep fd find texlive-full
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
