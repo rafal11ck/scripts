@@ -1,0 +1,40 @@
+% Created 2022-11-25 Fri 15:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Rafał Grot}
+\date{\today}
+\title{setupDE}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\#+propiety header-args :tangle desktopw.sh
+
+\section{Basic}
+\label{sec:org5ae7621}
+\begin{verbatim}
+#install basic stuff
+pacman -S openssh neovim tmux
+\end{verbatim}
+\section{AUR helper -- paru}
+\label{sec:org249006c}
+
+\begin{verbatim}
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+\end{verbatim}
+\end{document}
