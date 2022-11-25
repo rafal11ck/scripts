@@ -8,7 +8,7 @@ basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
 #+end_src
 ** Tui/cli tools
 #+begin_src sh
-tuiclitools="neovim tmux"
+tuiclitools="neovim tmux btop"
 #+end_src
 ** Install
 #+begin_src sh
@@ -46,16 +46,17 @@ $install --needed "$fonts" "$audio"
 * Wayland
 ** Apps
 - terminal emulator :: foot
+- app launcer :: tofi
 - file managmer :: pcmanfm-gtk3
 - web browser :: firefox
 #+begin_src sh
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi
 #+end_src
 ** Emacs
 - emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texlive-full=
 #+begin_src sh
-$install autoconf makeinfo
+$install autoconf makeinfo texinfo
 $install emacs-pgtk-git
 #+end_src
 I use doom emacs so.

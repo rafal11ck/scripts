@@ -1,7 +1,7 @@
 #install basic stuff
 basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
 
-tuiclitools="neovim tmux"
+tuiclitools="neovim tmux btop"
 
 pacman -Syu --needed "$basic" "$tuiclitools"
 
@@ -20,9 +20,9 @@ audio="pipewire pipewire-jack wireplumber"
 $install --needed "$fonts" "$audio"
 
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi
 
-$install autoconf makeinfo
+$install autoconf makeinfo texinfo
 $install emacs-pgtk-git
 
 $install git ripgrep fd find texlive-full
