@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-#dict weaper
+#dict weaper wayland
 
-dict "$(wl-paste)" | less
+dict "$(wl-paste -p)" | less
