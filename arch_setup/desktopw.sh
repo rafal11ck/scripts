@@ -1,5 +1,5 @@
 #install basic stuff
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which"
+basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
 
 tuiclitools="neovim tmux"
 
@@ -15,7 +15,7 @@ install="paru -Syu --needed"
 
 fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
 
-audio="pipewire"
+audio="pipewire pipewire-jack wireplumber"
 
 $install --needed "$fonts" "$audio"
 
