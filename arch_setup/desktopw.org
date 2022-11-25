@@ -1,7 +1,18 @@
 #+title: setupDE
+#+PROPERTY: header-args :tangle setupDE.sh
 
-#hyprland
+* Basic
+aa
+#+begin_src sh
+#install basic stuff
+pacman -S openssh neovim tmux
+#+end_src
 
-packages="swaylock swayidle wofi"
-tools="xarchiver thurnar wl-clipboard"
-paru -S "$packages $tools"
+* AUR helper -- paru
+aa
+#+begin_src sh
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+#+end_src
