@@ -1,5 +1,5 @@
-#+title: setupDE
-#+PROPERTY: header-args :tangle setupDE.sh
+#+title: desktopw
+#+PROPERTY: header-args :tangle desktopw.sh
 
 * Basic
 Install basic stuff
