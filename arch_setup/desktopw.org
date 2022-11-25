@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #+title: setupDE
 #+PROPERTY: header-args :tangle setupDE.sh
 
