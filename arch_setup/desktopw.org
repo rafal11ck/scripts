@@ -5,7 +5,7 @@
 Install basic stuff
 #+begin_src sh
 #install basic stuff
-doas pacman -Syu --needed openssh neovim tmux fakeroot rust pkgconfig tar dict
+doas pacman -Syu --needed openssh neovim tmux fakeroot rust pkgconfig tar dictd gitui mandb
 #+end_src
 
 * AUR helper -- paru
@@ -21,7 +21,7 @@ makepkg -si
 * Fonts
 
 #+begin_src sh
-paru -Syu --needed noto-fonts oft-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji
+paru -Syu --needed noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd
 #+end_src
 * Audio
 #+begin_src sh
@@ -34,13 +34,14 @@ paru -Syu --needed pipewire
 paru -Syu --needed foot pcmanfm-gtk3
 #+end_src
 * Emacs
-- emacs package :: AUR =emacs-pgtk-git=
+- emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texlive-full=
 #+begin_src sh
-paru -Syu emacs-pgtk-git
+paru -Syu --needed autoconf makeinfo
+paru -Syu --needed emacs-pgtk-git
 #+end_src
 I use doom emacs so.
 #+begin_src sh
-paru -Syu --needed git ripgrep fd find
+paru -Syu --needed git ripgrep fd find texlive-full
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+end_src
