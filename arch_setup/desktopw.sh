@@ -20,7 +20,7 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 $install --needed "$fonts" "$audio"
 
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord keepassxc
 
 $install autoconf makeinfo texinfo
 $install emacs-pgtk-git

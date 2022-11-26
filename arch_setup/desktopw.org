@@ -44,27 +44,33 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 $install --needed "$fonts" "$audio"
 #+end_src
 * Wayland
+** Utils
+#+begin_src
+#basic stuff for wayland
+$install wl-clipboard
+#+end_src
 ** WM
 *** Hyprland
 Install by yourself, depends on hardware.
 **** Libs
 #+begin_src
 #Hyprland libs
-$install qt5-wayland qt5ct libva
+$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xwayland
 #+end_src
-** Apps
-- terminal emulator :: foot
-- app launcer :: tofi
-- file managmer :: pcmanfm-gtk3
-- web browser :: firefox
-- sound control :: pavucontrol
-- discord :: discord
+* Apps
+- terminal emulator :: =foot=
+- app launcer :: =tofi=
+- file managmer :: =pcmanfm-gtk3=
+- web browser :: =firefox=
+- sound control :: =pavucontrol=
+- discord :: =discord=
+- password manager :: =keepassxc=
 #+begin_src sh
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord keepassxc
 #+end_src
 ** Emacs
-- emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texlive-full=
+- emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texinfo=
 #+begin_src sh
 $install autoconf makeinfo texinfo
 $install emacs-pgtk-git
