@@ -37,21 +37,31 @@ fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf
 #+end_src
 ** Audio
 #+begin_src sh
-audio="pipewire pipewire-jack wireplumber"
+audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-utils"
 #+end_src
 ** Install
 #+begin_src sh
 $install --needed "$fonts" "$audio"
 #+end_src
 * Wayland
+** WM
+*** Hyprland
+Install by yourself, depends on hardware.
+**** Libs
+#+begin_src
+#Hyprland libs
+$install qt5-wayland qt5ct libva
+#+end_src
 ** Apps
 - terminal emulator :: foot
 - app launcer :: tofi
 - file managmer :: pcmanfm-gtk3
 - web browser :: firefox
+- sound control :: pavucontrol
+- discord :: discord
 #+begin_src sh
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord
 #+end_src
 ** Emacs
 - emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texlive-full=

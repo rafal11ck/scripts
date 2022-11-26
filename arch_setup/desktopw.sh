@@ -15,12 +15,12 @@ install="paru -Syu --needed"
 
 fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
 
-audio="pipewire pipewire-jack wireplumber"
+audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-utils"
 
 $install --needed "$fonts" "$audio"
 
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi
+$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord
 
 $install autoconf makeinfo texinfo
 $install emacs-pgtk-git
