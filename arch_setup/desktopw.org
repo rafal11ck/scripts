@@ -4,7 +4,7 @@
 - =which= to check weather =paru= is installed.
 #+begin_src sh
 #install basic stuff
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
+basic="openssh fakeroot rust pkgconfig tar dictd gitui man-db which ddcutil"
 #+end_src
 ** Tui/cli tools
 #+begin_src sh
@@ -21,7 +21,7 @@ Reuires =rust fakeroot pkgconfig=
 #+begin_src sh
 #install AUR helper\
 git clone https://aur.archlinux.org/paru-bin.git &&
-cd paru &&
+cd paru-bin &&
 makepkg -si &&
 #+end_src
 ** Install command
