@@ -1,6 +1,6 @@
 #install basic stuff
 #add user to i2c so ddcutil works
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mand-b which ddcutil ripgrep fd find"
+basic="openssh fakeroot rust pkgconfig tar dictd gitui man-db which ddcutil ripgrep fd find"
 
 tuiclitools="neovim tmux btop"
 
