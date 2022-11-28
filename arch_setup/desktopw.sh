@@ -1,14 +1,15 @@
 #install basic stuff
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
+#add user to i2c so ddcutil works
+basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil ripgrep fd find"
 
 tuiclitools="neovim tmux btop"
 
-pacman -Syu --needed "$basic" "$tuiclitools"
+doas pacman -Syu --needed "$basic" "$tuiclitools"
 
 #install AUR helper\
-git clone https://aur.archlinux.org/paru-bin.git &&
+which paru || git clone https://aur.archlinux.org/paru-bin.git &&
 cd paru &&
-makepkg -si &&
+makepkg -si
 
 #Install command alias to aur helper
 install="paru -Syu --needed"
@@ -20,11 +21,13 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 $install --needed "$fonts" "$audio"
 
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord keepassxc
+$install foot pcmanfm-gtk3 firefox tofi discord keepassxc
+
+$install papirus-icon-theme pop-gtk-theme
 
 $install autoconf makeinfo texinfo
-$install emacs-pgtk-git
+#$install emacs-pgtk-git
 
-$install git ripgrep fd find texlive-full
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+#$install git ripgrep fd find texlive-full
+#git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+#~/.emacs.d/bin/doom install

@@ -2,9 +2,11 @@
 #+PROPERTY: header-args :tangle desktopw.sh
 * Basic
 - =which= to check weather =paru= is installed.
+  Add your user tp =i2c= group so ddcutil works.
 #+begin_src sh
 #install basic stuff
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil"
+#add user to i2c so ddcutil works
+basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil ripgrep fd find"
 #+end_src
 ** Tui/cli tools
 #+begin_src sh
@@ -12,7 +14,7 @@ tuiclitools="neovim tmux btop"
 #+end_src
 ** Install
 #+begin_src sh
-pacman -Syu --needed "$basic" "$tuiclitools"
+doas pacman -Syu --needed "$basic" "$tuiclitools"
 #+end_src
 
 * AUR helper -- paru
@@ -20,9 +22,9 @@ Install AUR helper
 Reuires =rust fakeroot pkgconfig=
 #+begin_src sh
 #install AUR helper\
-git clone https://aur.archlinux.org/paru-bin.git &&
+which paru || git clone https://aur.archlinux.org/paru-bin.git &&
 cd paru &&
-makepkg -si &&
+makepkg -si
 #+end_src
 ** Install command
 #+begin_src sh
@@ -67,17 +69,21 @@ $install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xwayland
 - password manager :: =keepassxc=
 #+begin_src sh
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox jellyfin-media-player-git tofi discord keepassxc
+$install foot pcmanfm-gtk3 firefox tofi discord keepassxc
+#+end_src
+** Themes
+#+begin_src sh
+$install papirus-icon-theme pop-gtk-theme
 #+end_src
 ** Emacs
 - emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texinfo=
 #+begin_src sh
 $install autoconf makeinfo texinfo
-$install emacs-pgtk-git
+#$install emacs-pgtk-git
 #+end_src
 I use doom emacs so.
 #+begin_src sh
-$install git ripgrep fd find texlive-full
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+#$install git ripgrep fd find texlive-full
+#git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+#~/.emacs.d/bin/doom install
 #+end_src
