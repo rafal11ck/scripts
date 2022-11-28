@@ -22,7 +22,7 @@ $install --needed $fonts $audio
 $install wl-clipboard
 
 #Hyprland libs
-archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-x11"
+archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-wayland"
 $install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
 
 #Wayland apps
