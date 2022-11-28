@@ -1,0 +1,25 @@
+#+title: Instalapps
+#+PROPERTY: header-args :tangle Installapps.sh
+
+#+begin_src sh
+install="paru -Syu --needed"
+#+end_src
+
+* Theme
+- Icons :: =papirus-icon-theme=
+#+begin_src sh
+pop-gtk-theme papirus-icon-theme qt5ct dconf-editor
+#+end_src
+* Basic
+#+begin_src sh
+$install foot dictd pcmanfm-gtk3 tofi
+#+end_src
+- terminal emulator :: =foot=
+- file manager :: =pcmanfm=
+- app launcher :: =tofi=
+* other
+- dictonary :: =dictd=
+-
+#+begin_src sh
+$install foot dictd pcmanfm-gtk3
+#+end_src
