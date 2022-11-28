@@ -22,9 +22,7 @@ Install AUR helper
 Reuires =rust fakeroot pkgconfig=
 #+begin_src sh
 #install AUR helper\
-which paru || git clone https://aur.archlinux.org/paru-bin.git &&
-cd paru-bin &&
-makepkg -si
+! command -v paru && (git clone https://aur.archlinux.org/paru-bin;cd paru-bin ; yes | makepkg -si )
 #+end_src
 
 #+RESULTS:

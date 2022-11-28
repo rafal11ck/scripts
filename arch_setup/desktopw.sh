@@ -7,9 +7,7 @@ tuiclitools="neovim tmux btop"
 doas pacman -Syu --needed "$basic" "$tuiclitools"
 
 #install AUR helper\
-which paru || git clone https://aur.archlinux.org/paru-bin.git &&
-cd paru-bin &&
-makepkg -si
+! command -v paru && (git clone https://aur.archlinux.org/paru-bin;cd paru-bin ; yes | makepkg -si )
 
 #Install command alias to aur helper
 install="paru -Syu --needed"
