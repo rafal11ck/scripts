@@ -48,18 +48,20 @@ $install --needed $fonts $audio
 #+end_src
 * Wayland
 ** Utils
-#+begin_src
-#basic stuff for wayland
+#+begin_src sh
+#basic stuff for wayland xorg-wayland
 $install wl-clipboard
 #+end_src
 ** WM
 *** Hyprland
 Install by yourself, depends on hardware.
 **** Libs
-#+begin_src
+#+begin_src sh
 #Hyprland libs
-$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xwayland
+archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-x11"
+$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
 #+end_src
+
 * Apps
 - terminal emulator :: =foot=
 - app launcer :: =tofi=
@@ -79,7 +81,7 @@ $install papirus-icon-theme pop-gtk-theme
 ** Emacs
 - emacs package :: AUR =emacs-pgtk-git= needs =autoconf makeinfo= and =makeinfo= which is provided by =texinfo=
 #+begin_src sh
-$install autoconf makeinfo texinfo
+$install autoconf texinfo
 #$install emacs-pgtk-git
 #+end_src
 I use doom emacs so.

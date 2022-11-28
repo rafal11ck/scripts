@@ -18,12 +18,19 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 
 $install --needed $fonts $audio
 
+#basic stuff for wayland xorg-wayland
+$install wl-clipboard
+
+#Hyprland libs
+archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-x11"
+$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
+
 #Wayland apps
 $install foot pcmanfm-gtk3 firefox tofi discord keepassxc
 
 $install papirus-icon-theme pop-gtk-theme
 
-$install autoconf makeinfo texinfo
+$install autoconf texinfo
 #$install emacs-pgtk-git
 
 #$install git ripgrep fd find texlive-full
