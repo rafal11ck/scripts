@@ -1,6 +1,6 @@
 #install basic stuff
 #add user to i2c so ddcutil works
-basic="openssh fakeroot rust pkgconfig tar dictd gitui mandb which ddcutil ripgrep fd find"
+basic="openssh fakeroot rust pkgconfig tar dictd gitui mand-b which ddcutil ripgrep fd find"
 
 tuiclitools="neovim tmux btop"
 
@@ -8,7 +8,7 @@ doas pacman -Syu --needed "$basic" "$tuiclitools"
 
 #install AUR helper\
 which paru || git clone https://aur.archlinux.org/paru-bin.git &&
-cd paru &&
+cd paru-bin &&
 makepkg -si
 
 #Install command alias to aur helper
