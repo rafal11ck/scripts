@@ -14,7 +14,7 @@ tuiclitools="neovim tmux btop"
 #+end_src
 ** Install
 #+begin_src sh
-doas pacman -Syu --needed "$basic" "$tuiclitools"
+doas pacman -Syu --needed $basic $tuiclitools
 #+end_src
 
 * AUR helper -- paru
@@ -44,7 +44,7 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 #+end_src
 ** Install
 #+begin_src sh
-$install --needed "$fonts" "$audio"
+$install --needed $fonts $audio
 #+end_src
 * Wayland
 ** Utils

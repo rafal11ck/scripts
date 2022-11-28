@@ -4,7 +4,7 @@ basic="openssh fakeroot rust pkgconfig tar dictd gitui man-db which ddcutil ripg
 
 tuiclitools="neovim tmux btop"
 
-doas pacman -Syu --needed "$basic" "$tuiclitools"
+doas pacman -Syu --needed $basic $tuiclitools
 
 #install AUR helper\
 ! command -v paru && (git clone https://aur.archlinux.org/paru-bin;cd paru-bin ; yes | makepkg -si )
@@ -16,7 +16,7 @@ fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf
 
 audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-utils"
 
-$install --needed "$fonts" "$audio"
+$install --needed $fonts $audio
 
 #Wayland apps
 $install foot pcmanfm-gtk3 firefox tofi discord keepassxc
