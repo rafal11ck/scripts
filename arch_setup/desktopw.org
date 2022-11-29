@@ -65,14 +65,14 @@ $install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $
 * Apps
 - terminal emulator :: =foot=
 - app launcer :: =tofi=
-- file managmer :: =pcmanfm-gtk3=
+- file managmer :: =pcmanfm-gtk3=, automounting =gvfs=
 - web browser :: =firefox=
 - sound control :: =pavucontrol=
 - discord :: =discord=
 - password manager :: =keepassxc=
 #+begin_src sh
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox tofi discord keepassxc
+$install foot pcmanfm-gtk3 firefox tofi discord keepassxc gvfs
 #+end_src
 ** Themes
 #+begin_src sh

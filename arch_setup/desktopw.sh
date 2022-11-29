@@ -26,7 +26,7 @@ archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-wayland"
 $install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
 
 #Wayland apps
-$install foot pcmanfm-gtk3 firefox tofi discord keepassxc
+$install foot pcmanfm-gtk3 firefox tofi discord keepassxc gvfs
 
 $install papirus-icon-theme pop-gtk-theme
 
