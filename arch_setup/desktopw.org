@@ -36,7 +36,7 @@ install="paru -Syu --needed"
 * Install Audio and Fonts
 ** Fonts
 #+begin_src sh
-fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
+fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd ttf-liberation"
 #+end_src
 ** Audio
 #+begin_src sh

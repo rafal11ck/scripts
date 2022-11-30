@@ -12,7 +12,7 @@ doas pacman -Syu --needed $basic $tuiclitools
 #Install command alias to aur helper
 install="paru -Syu --needed"
 
-fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd"
+fonts="noto-fonts otf-ipafont ttf-baekmuk opendesktop-fonts noto-fonts-emoji ttf-iosevka-nerd ttf-liberation"
 
 audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-utils"
 
