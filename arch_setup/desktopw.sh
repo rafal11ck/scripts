@@ -33,6 +33,6 @@ $install papirus-icon-theme pop-gtk-theme
 $install autoconf texinfo
 #$install emacs-pgtk-git
 
-#$install git ripgrep fd find texlive-full
+$install git ripgrep fd find texlive-most
 #git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 #~/.emacs.d/bin/doom install
