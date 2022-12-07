@@ -12,9 +12,14 @@ basic="openssh fakeroot rust pkgconfig tar dictd gitui man-db which ddcutil ripg
 #+begin_src sh
 tuiclitools="neovim tmux btop"
 #+end_src
+** Polkit
+- =polkit-gnome= :: needs to be started
+ #+begin_src sh
+polkit = "polkit-gnome"
+ #+end_src
 ** Install
 #+begin_src sh
-doas pacman -Syu --needed $basic $tuiclitools
+doas pacman -Syu --needed $basic $tuiclitools $polkit
 #+end_src
 
 * AUR helper -- paru
@@ -48,16 +53,18 @@ $install --needed $fonts $audio
 ** Utils
 #+begin_src sh
 #basic stuff for wayland xorg-wayland
-$install wl-clipboard
+$waylandUtils wl-clipboard
 #+end_src
 ** WM
 *** Hyprland
-Install by yourself, depends on hardware.
+Install by yourself, depends on hardware    .
 **** Libs
 #+begin_src sh
 #Hyprland libs
 archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-wayland"
-$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
+hyprlandlibs="qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland"
+
+$install $hyprlandlibs $archwikilibs
 #+end_src
 
 * Apps

@@ -4,7 +4,9 @@ basic="openssh fakeroot rust pkgconfig tar dictd gitui man-db which ddcutil ripg
 
 tuiclitools="neovim tmux btop"
 
-doas pacman -Syu --needed $basic $tuiclitools
+polkit = "polkit-gnome"
+
+doas pacman -Syu --needed $basic $tuiclitools $polkit
 
 #install AUR helper\
 ! command -v paru && (git clone https://aur.archlinux.org/paru-bin;cd paru-bin ; yes | makepkg -si )
@@ -19,11 +21,13 @@ audio="pipewire pipewire-jack wireplumber pipewire-pulse pipewire-alsa alsa-util
 $install --needed $fonts $audio
 
 #basic stuff for wayland xorg-wayland
-$install wl-clipboard
+$waylandUtils wl-clipboard
 
 #Hyprland libs
 archwikilibs="gtk3 gtk4 qt5-wayland qt6-wayland qt5ct clutter glfw-wayland"
-$install qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland $archwikilibs
+hyprlandlibs="qt5-wayland qt5ct libva nvidia-vaapi-driver-git wlroots xorg-xwayland"
+
+$install $hyprlandlibs $archwikilibs
 
 #Wayland apps
 $install foot pcmanfm-gtk3 firefox tofi discord keepassxc gvfs
