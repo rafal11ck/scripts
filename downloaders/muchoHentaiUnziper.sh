@@ -19,7 +19,7 @@ for i in ./*zip; do
     printf "Done"
     newname="$(basename "$i" .zip).mkv"
     printf %b "\n\tRenaming as $newname\n"
-    rename "video.mkv" "$newname" ./video.mkv || exit
+    rename "video.mkv" "$newname" ./video.mkv || rename "video.mp4" "$newname" ./video.mp4 || exit
     printf %b "\n\tRemoving $i\n"
     rm "$i" || exit
 done
