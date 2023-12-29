@@ -10,4 +10,4 @@ then
    modprobe i2c-dev || doas modprobe i2c-dev;
 fi
 
-ddcutil detect | grep Display | sed s/Display\ //g | xargs -I{} ddcutil -d {} setvcp 0x10 "$1"
+ddcutil --brief detect | grep Display | sed s/Display\ //g | xargs -I{} ddcutil -d {} setvcp 0x10 "$1"
