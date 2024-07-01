@@ -3,7 +3,7 @@
 headless_rm() {
     set -x
     pgrep -af "wayvnc" && killall wayvnc
-    headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]).*|\1|p')
+    headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]*).*|\1|p')
     hyprctl output remove "$headless"
     unset headless
     set +x
@@ -16,10 +16,10 @@ headless_add() {
     PORT="11000"
 
     # check existing headless display
-    headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]).*|\1|p')
+    headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]*).*|\1|p')
 
     #create, if not exists
-    [ -z "$headless" ] && hyprctl output create headless | grep -q "ok" && headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]).*|\1|p') && printf '\n\nCreate Headless Display: %s' "$headless"
+    [ -z "$headless" ] && hyprctl output create headless | grep -q "ok" && headless=$(hyprctl monitors | sed -nE 's|.*(HEADLESS-[0-9]*).*|\1|p') && printf '\n\nCreate Headless Display: %s' "$headless"
 
     #there is issue
     [ -z "$headless" ] && printf "Something went wrong\n" && return 1
@@ -40,7 +40,7 @@ headless_add() {
     monitor_position=$(printf "auto\nauto-right\nauto-left\nauto-up\nauto-down" | fzf --prompt="Select positioning > ")
 
     # set resolution,fps,scaling and positoning
-    hyprctl keyword monitor "$headless","$RES","$monitor_position",'1'
+    hyprctl keyword monitor "$headless","$RES","$monitor_position",auto
 
     # kill existing wayvnc and start a new one
     pgrep -af "wayvnc" && killall wayvnc
